@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+</head>
+<body>
+    <div id="movies"></div>
+
+    <script>
+        fetch('https://sheets.googleapis.com/v4/spreadsheets/1l7T7hgeAqg1iIT1TEEqtHnuTr7DBIo0ifoTIceHqh4o/values/Sheet1!A1:I100?key=AIzaSyB5WTjIR5OZt108xl9uQApzeoNRWuMyYRE')
+            .then(response => response.json())
+            .then(data => {
+                const movies = document.getElementById('movies');
+                for(let i = 1; i < data.values.length; i++) {
+                    const movie = data.values[i];
+                    const [id, name, description, url, category, poster] = movie;
+                    const movieDiv = document.createElement('div');
+                    movieDiv.innerHTML = `
+                        <div>
+                            <h3>${name}</h3>
+                            <img src="${poster}" alt="${name} Poster" width="150">
+                            <p>Category: ${category}</p>
+                            <button onclick="showMovie('${url}', '${name}', '${description}')">Watch Details</button>
+                        </div>
+                    `;
+                    movies.appendChild(movieDiv);
+                }
+            });
+
+        function showMovie(url, name, description) {
+            sessionStorage.setItem('movieUrl', url);
+            sessionStorage.setItem('movieName', name);
+            sessionStorage.setItem('movieDescription', description);
+            window.open('movie.html'&name=${encodeURIComponent(name)}, '_blank');
+        }
+    </script>
+</body>
+</html>
