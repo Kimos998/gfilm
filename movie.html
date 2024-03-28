@@ -12,9 +12,9 @@
     <div id="player"></div>
 
     <script>
-        const movieName = decodeURIComponent(new URLSearchParams(window.location.search).get('name'));
+        const movieName = sessionStorage.getItem('movieName');
         const movieDescription = sessionStorage.getItem('movieDescription');
-        const videoUrl = new URLSearchParams(window.location.search).get('url');
+        const videoUrl = sessionStorage.getItem('movieUrl');
 
         document.getElementById('movieName').textContent = movieName;
         document.getElementById('movieDescription').textContent = movieDescription;
