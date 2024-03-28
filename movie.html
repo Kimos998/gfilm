@@ -19,6 +19,8 @@
         document.getElementById('movieName').textContent = movieName;
         document.getElementById('movieDescription').textContent = movieDescription;
 
+        document.title = movieName; // تعيين عنوان الصفحة ليكون اسم الفيلم
+
         var player = new Clappr.Player({
             source: videoUrl,
             parentId: "#player",
