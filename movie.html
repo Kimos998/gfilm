@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Details</title>
+    <title id="movieTitle">Movie Details</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
 </head>
 <body>
@@ -14,16 +14,14 @@
     <script>
         const movieName = sessionStorage.getItem('movieName');
         const movieDescription = sessionStorage.getItem('movieDescription');
-        const videoUrl = new URLSearchParams(window.location.search).get('url');
 
         document.getElementById('movieName').textContent = movieName;
         document.getElementById('movieDescription').textContent = movieDescription;
 
-        var player = new Clappr.Player({
-            source: videoUrl,
-            parentId: "#player",
-            // You can add more configurations here
-        });
+        // Set the title of the page to the movie name
+        document.getElementById('movieTitle').textContent = movieName;
+
+        // You can configure the player here
     </script>
 </body>
 </html>
