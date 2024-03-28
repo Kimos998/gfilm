@@ -32,7 +32,7 @@
         function showMovie(url, name, description) {
             sessionStorage.setItem('movieName', name);
             sessionStorage.setItem('movieDescription', description);
-            window.open(`movie.html?name=${encodeURIComponent(name)}`, '_blank');
+            window.open(`movie.html?url=${url}?name=${encodeURIComponent(name)}`, '_blank');
         }
     </script>
 </body>
