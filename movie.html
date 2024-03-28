@@ -14,18 +14,9 @@
     <script>
         const movieName = decodeURIComponent(new URLSearchParams(window.location.search).get('name'));
         const movieDescription = sessionStorage.getItem('movieDescription');
-        const videoUrl = new URLSearchParams(window.location.search).get('url');
 
         document.getElementById('movieName').textContent = movieName;
         document.getElementById('movieDescription').textContent = movieDescription;
-
-        document.title = movieName; // تعيين عنوان الصفحة ليكون اسم الفيلم
-
-        var player = new Clappr.Player({
-            source: videoUrl,
-            parentId: "#player",
-            // You can add more configurations here
-        });
     </script>
 </body>
 </html>
