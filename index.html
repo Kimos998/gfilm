@@ -22,17 +22,17 @@
                             <h3>${name}</h3>
                             <img src="${poster}" alt="${name} Poster" width="150">
                             <p>Category: ${category}</p>
-                            <button onclick="showMovie('${url}', '${name}', '${description}')">Watch Details</button>
+                            <button onclick="showMovie('${name}', '${description}')">Watch Details</button>
                         </div>
                     `;
                     movies.appendChild(movieDiv);
                 }
             });
 
-        function showMovie(url, name, description) {
+        function showMovie(name, description) {
             sessionStorage.setItem('movieName', name);
             sessionStorage.setItem('movieDescription', description);
-            window.open(`movie.html?url=${url}?name=${encodeURIComponent(name)}`, '_blank');
+            window.open(`movie.html?name=${encodeURIComponent(name)}`, '_blank');
         }
     </script>
 </body>
